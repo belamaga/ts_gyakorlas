@@ -17,5 +17,48 @@ function osszead(a: number, b: number): number {
     return a+b;
 }
 
-console.log(osszead(10, 5));
+let a: number = 10;
+let b: number = 5;
+console.log(`${a} és ${b} összege: ${osszead(a, b)}`);
 
+// Interfacek
+interface Ember
+{
+    azonosito: string,
+    nev: string,
+    kor: number
+}
+
+const diak: Ember = { azonosito: "0001", nev: "Lajos", kor: 18 }
+console.log(`Diákunk neve ${diak.nev}, ki ${diak.kor} éves, azonosítója pedig ${diak.azonosito}.`);
+
+// Osztályok
+class Allatka {
+    nev: string;
+    atlagKor: number;
+
+    constructor(nev: string, atlagKor: number)
+    {
+        this.nev = nev;
+        this.atlagKor = atlagKor;
+    }
+    
+    adat(): void {
+        console.log(`${this.nev} átlagkora ${this.atlagKor} év.`)
+    }
+}
+
+let kutya = new Allatka("Kutya", 15);
+kutya.adat();
+
+// Enumok
+enum Szinek { Piros, Narancs, Sárga, Zöld, Kék, Lila}
+let sz: Szinek = Szinek.Sárga;
+console.log(`Szín indexe: ${sz}`);
+
+// Generikus típusok
+function identitas<T>(arg: T): T {
+    return arg
+}
+console.log(identitas<string>("Hello"));
+console.log(identitas<number>(100));
